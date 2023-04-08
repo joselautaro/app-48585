@@ -29,6 +29,7 @@ export const ItemListContainer = ({greating}) => {
 
   return (
     <>
+    {/* Nuestro componente arranca con el loading en "true" y cuando resulve, imprime en pantalla todo nuestro componente ItemList (donde mapeamos cada uno de los productos) */}
       {
         loading
         ?<h2>Cargando...</h2>
