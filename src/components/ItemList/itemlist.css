@@ -1,0 +1,13 @@
+img{
+    width: 200px;
+    height: 250px;
+}
+.fila{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+h3{
+    text-align: center;
+}

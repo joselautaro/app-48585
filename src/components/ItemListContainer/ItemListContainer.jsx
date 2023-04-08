@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {ImSpinner3} from 'react-icons/im'
 import { pedirProductos } from '../../helpers/pedirProductos';
 import { ItemList } from '../ItemList/ItemList';
 import './itenlistcontainer.css';
@@ -32,7 +33,7 @@ export const ItemListContainer = ({greating}) => {
     {/* Nuestro componente arranca con el loading en "true" y cuando resulve, imprime en pantalla todo nuestro componente ItemList (donde mapeamos cada uno de los productos) */}
       {
         loading
-        ?<h2>Cargando...</h2>
+        ?<ImSpinner3/>
         :<ItemList productos={items}/>
       }
     </>

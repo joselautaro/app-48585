@@ -22,8 +22,7 @@ export const ItemCount = () =>{
     return(
         <>
         <h4>Cantidad: {counter}</h4>
-        <div className="btn">
-        
+        <div>
             <button onClick={sumar}>➕</button>
             <button onClick={restar}>➖</button>
             <button onClick={resetear}>🔄</button>

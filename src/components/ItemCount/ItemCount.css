@@ -1,8 +1,6 @@
+button{
+    margin: 5px;
+}
 h4{
     text-align: center;
-}
-.btn{
-
-    display: flex;
-    justify-content: space-around;
 }
