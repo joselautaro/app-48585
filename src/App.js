@@ -14,9 +14,6 @@ function App() {
       <NavBar/>
       <ItemListContainer greating="Hola Mundo"/>
       <ItemCount/>
-      <hr />
-      {/* <Pika/> */}
-      <hr />
       </div>
       </>
   );
