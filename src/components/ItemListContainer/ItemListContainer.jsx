@@ -3,12 +3,17 @@ import {ImSpinner3} from 'react-icons/im'
 import { pedirProductos } from '../../helpers/pedirProductos';
 import { ItemList } from '../ItemList/ItemList';
 import './itenlistcontainer.css';
+import { useParams } from 'react-router-dom';
 
 export const ItemListContainer = ({greating}) => {
 
   const [items, setItems] = useState([])
 
   const [loading, setLoading] = useState(false)
+
+  // const param = useParams()
+
+  const {categoryId} = useParams()
 
 
   useEffect(() =>{
@@ -17,13 +22,17 @@ export const ItemListContainer = ({greating}) => {
     pedirProductos()
       .then((res) =>{
         // Imprimos la respuesta y la guardamos en el hook
-        setItems(res)
+        if(categoryId){
+          setItems(res.filter(prod => prod.category === categoryId)  )
+        }else{
+          setItems(res)
+        }
         // console.log(res)
       })
       // Consologueamos errores
       .catch((error) => console.log(error))
       .finally(() =>{setLoading(false)})
-  }, [])
+  }, [categoryId])
 
 
 
