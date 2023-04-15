@@ -11,8 +11,6 @@ export const ItemListContainer = ({greating}) => {
 
   const [loading, setLoading] = useState(false)
 
-  // const param = useParams()
-
   const {categoryId} = useParams()
 
 
