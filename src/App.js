@@ -36,6 +36,9 @@ function App() {
       const newCart = carrito.filter((prod) => prod.id !== itemId)
       setCarrito(newCart)
   }
+  const vaciarCarrito = () =>{
+    setCarrito([])
+  }
 
 
 
@@ -45,7 +48,8 @@ function App() {
       calcularCantidad,
       precioTotal,
       removerItem,
-      carrito
+      carrito,
+      vaciarCarrito
     }}>
       <div className='App'>
         <Router>
