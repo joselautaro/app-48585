@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
 import { ItemCount } from '../ItemCount/ItemCount'
+import {CartContext} from '../context/CartContext'
 
 export const ItemDetail = ({ id, description, price, image, category, stock }) => {
   // Pasamos mediante props, cada propiedad de nuestro productos(objetos) y lo colocamos por props en nuestro return
@@ -12,6 +13,14 @@ export const ItemDetail = ({ id, description, price, image, category, stock }) =
   const volverHaciaAtras = () =>{
     navigate(-1)
   }
+
+  // ______________________
+
+  // Empezamos a consumir las funcionalidades del contexto
+
+  const {addToCart} = useContext(CartContext)
+
+  // __________________________________
 
   const [counter, setCounter] = useState(0)
 
@@ -25,6 +34,7 @@ export const ItemDetail = ({ id, description, price, image, category, stock }) =
           counter
         }
         console.log(newItem)
+        addToCart(newItem)
   }
 
 
