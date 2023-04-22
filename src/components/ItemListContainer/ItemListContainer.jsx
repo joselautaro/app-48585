@@ -5,7 +5,7 @@ import { ItemList } from '../ItemList/ItemList';
 import './itenlistcontainer.css';
 import { useParams } from 'react-router-dom';
 
-export const ItemListContainer = ({greating}) => {
+export const ItemListContainer = () => {
 
   const [items, setItems] = useState([])
 

@@ -46,7 +46,7 @@ export const ItemDetail = ({ id, description, price, image, category, stock }) =
         <Card.Body>
           <Card.Title>{id}</Card.Title>
           <Card.Title>{description}</Card.Title>
-          <Card.Title>{price}</Card.Title>
+          <Card.Title>${price}</Card.Title>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea error totam quibusdam doloribus, alias aperiam exercitationem laboriosam illum similique eos, delectus vitae odit maxime, repellendus iusto quisquam placeat blanditiis. Cupiditate! </p>
           <Card.Title>Categoria: {category}</Card.Title>
           <ItemCount max={stock} modify={setCounter} cantidad={counter}/>
