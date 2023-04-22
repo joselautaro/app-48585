@@ -1,0 +1,4 @@
+.listado{
+    display: flex;
+    justify-content: space-around;
+}
