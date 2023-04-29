@@ -39,19 +39,34 @@ export const ItemListContainer = () => {
 
     const productos = db.collection('productos')
 
-    productos.get()
+    if(categoryId){
+      const filtrado = productos.where("category", "==", categoryId)
+      filtrado.get()
           .then((res) =>{
             const newItem = res.docs.map((doc) =>{
-              return {id: doc.id, ...doc.data()}
+              return{id: doc.id, ...doc.data()}
             })
-            console.table(newItem)
             setItems(newItem)
           })
-          .catch((error) => console.log(error))
+          .catch((err) => console.log(err))
           .finally(() =>{
             setLoading(false)
           })
 
+    }else{
+      productos.get()
+      .then((res) =>{
+        const newItem = res.docs.map((doc) =>{
+          return {id: doc.id, ...doc.data()}
+        })
+        console.table(newItem)
+        setItems(newItem)
+      })
+      .catch((error) => console.log(error))
+      .finally(() =>{
+        setLoading(false)
+      })
+    }
   }, [categoryId])
 
 
