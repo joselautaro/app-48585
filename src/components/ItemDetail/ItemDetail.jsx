@@ -5,7 +5,7 @@ import { ItemCount } from '../ItemCount/ItemCount'
 import {CartContext} from '../context/CartContext'
 import { Link } from 'react-router-dom';
 
-export const ItemDetail = ({ id, description, price, image, category, stock }) => {
+export const ItemDetail = ({ id, name, description, price, image, category, stock }) => {
   // Pasamos mediante props, cada propiedad de nuestro productos(objetos) y lo colocamos por props en nuestro return
 
 
@@ -28,6 +28,7 @@ export const ItemDetail = ({ id, description, price, image, category, stock }) =
   const sumarAlCarrito = () =>{
         const newItem = {
           id,
+          name,
           description,
           image,
           price,
@@ -45,7 +46,7 @@ export const ItemDetail = ({ id, description, price, image, category, stock }) =
       <Card style={{ width: '25rem' }}>
         <Card.Img variant="top" src={image} />
         <Card.Body>
-          <Card.Title>{id}</Card.Title>
+          <Card.Title>{name}</Card.Title>
           <Card.Title>{description}</Card.Title>
           <Card.Title>${price}</Card.Title>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea error totam quibusdam doloribus, alias aperiam exercitationem laboriosam illum similique eos, delectus vitae odit maxime, repellendus iusto quisquam placeat blanditiis. Cupiditate! </p>
