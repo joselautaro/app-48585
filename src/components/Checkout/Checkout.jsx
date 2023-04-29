@@ -100,7 +100,7 @@ export const Checkout = () => {
           <label htmlFor="telefono">Teléfono</label>
           <input type="text" className="form-control" onChange={(e) => setTelefono(e.target.value)} value={telefono} />
         </div>
-        <button type='submit' className='btn btn-success'>Finalizar</button>
+        <button type='submit' className='btn btn-success'>Finalizar compra</button>
         <Link to='/cart' className='btn btn-info'>Volver al carrito</Link>
       </form>
 
