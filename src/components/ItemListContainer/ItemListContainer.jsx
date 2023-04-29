@@ -32,42 +32,66 @@ export const ItemListContainer = () => {
   const {categoryId} = useParams()
 
 
+  // Resumido if y else con operadores ternarios
   useEffect(() =>{
     setLoading(true)
+    const db = getFirestore()
 
-    const db =getFirestore();
-
-    const productos = db.collection('productos')
-
-    if(categoryId){
-      const filtrado = productos.where("category", "==", categoryId)
-      filtrado.get()
-          .then((res) =>{
-            const newItem = res.docs.map((doc) =>{
-              return{id: doc.id, ...doc.data()}
-            })
-            setItems(newItem)
-          })
-          .catch((err) => console.log(err))
-          .finally(() =>{
-            setLoading(false)
-          })
-
-    }else{
+    const productos = categoryId
+      ?db.collection('productos').where('category', '==', categoryId)
+      : db.collection('productos')
       productos.get()
-      .then((res) =>{
-        const newItem = res.docs.map((doc) =>{
-          return {id: doc.id, ...doc.data()}
-        })
-        console.table(newItem)
-        setItems(newItem)
-      })
-      .catch((error) => console.log(error))
-      .finally(() =>{
-        setLoading(false)
-      })
-    }
-  }, [categoryId])
+      .then((res) => {
+              const newItem = res.docs.map((doc) => {
+                return { id: doc.id, ...doc.data() };
+              });
+              console.table(newItem);
+              setItems(newItem);
+            })
+            .catch((err) => console.log(err))
+            .finally(() => {
+              setLoading(false);
+            });
+
+  }, [categoryId, setLoading])
+
+
+  // useEffect(() =>{
+  //   setLoading(true)
+
+  //   const db =getFirestore();
+
+  //   const productos = db.collection('productos')
+
+  //   if(categoryId){
+  //     const filtrado = productos.where("category", "==", categoryId)
+  //     filtrado.get()
+  //         .then((res) =>{
+  //           const newItem = res.docs.map((doc) =>{
+  //             return{id: doc.id, ...doc.data()}
+  //           })
+  //           setItems(newItem)
+  //         })
+  //         .catch((err) => console.log(err))
+  //         .finally(() =>{
+  //           setLoading(false)
+  //         })
+
+  //   }else{
+  //     productos.get()
+  //     .then((res) =>{
+  //       const newItem = res.docs.map((doc) =>{
+  //         return {id: doc.id, ...doc.data()}
+  //       })
+  //       console.table(newItem)
+  //       setItems(newItem)
+  //     })
+  //     .catch((error) => console.log(error))
+  //     .finally(() =>{
+  //       setLoading(false)
+  //     })
+  //   }
+  // }, [categoryId])
 
 
 
