@@ -15,6 +15,9 @@ export const ItemCount = ({max, cantidad, modify}) =>{
     
 
 
+    
+
+
 
     return(
         <>
