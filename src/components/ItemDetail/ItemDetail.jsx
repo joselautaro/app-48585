@@ -54,10 +54,10 @@ export const ItemDetail = ({ id, name, description, price, image, category, stoc
           <ItemCount max={stock} modify={setCounter} cantidad={counter}/>
           <Button onClick={sumarAlCarrito}>Agregar al carrito</Button>
         </Card.Body>
-        <Button onClick={volverHaciaAtras} className='btn btn-sucess'>Volver atras</Button>
         <Link to='/cart' className='btn btn-info'>
           Ir al carrito
         </Link>
+        <Button onClick={volverHaciaAtras} className='btn btn-sucess'>Volver atras</Button>
       </Card>
     </div>
   )
