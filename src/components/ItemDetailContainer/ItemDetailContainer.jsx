@@ -6,6 +6,7 @@ import {getFirestore} from '../../firebase/config'
 import {ImSpinner3} from 'react-icons/im'
 import {ItemDetail} from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 export const ItemDetailContainer = () => {
 
@@ -38,9 +39,11 @@ export const ItemDetailContainer = () => {
                 setItem({
                     id: doc.id, ...doc.data()
                 })
+                
             })
             .catch((err) => console.log(err))
             .finally(() =>{
+
                 setLoading(false)
             })
 

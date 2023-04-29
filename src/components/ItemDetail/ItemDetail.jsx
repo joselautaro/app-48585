@@ -4,6 +4,7 @@ import { Card, Button } from 'react-bootstrap'
 import { ItemCount } from '../ItemCount/ItemCount'
 import {CartContext} from '../context/CartContext'
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export const ItemDetail = ({ id, name, description, price, image, category, stock }) => {
   // Pasamos mediante props, cada propiedad de nuestro productos(objetos) y lo colocamos por props en nuestro return
@@ -37,6 +38,12 @@ export const ItemDetail = ({ id, name, description, price, image, category, stoc
         }
         console.log(newItem)
         addToCart(newItem)
+        Swal.fire({
+          icon: 'success',
+          title: 'Producto agregado al carrito',
+          showConfirmButton: false,
+          timer: 1200
+        })
   }
 
 
@@ -52,7 +59,8 @@ export const ItemDetail = ({ id, name, description, price, image, category, stoc
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea error totam quibusdam doloribus, alias aperiam exercitationem laboriosam illum similique eos, delectus vitae odit maxime, repellendus iusto quisquam placeat blanditiis. Cupiditate! </p>
           <Card.Title>Categoria: {category}</Card.Title>
           <ItemCount max={stock} modify={setCounter} cantidad={counter}/>
-          <Button onClick={sumarAlCarrito}>Agregar al carrito</Button>
+          <Button onClick={sumarAlCarrito}>
+            Agregar al carrito</Button>
         </Card.Body>
         <Link to='/cart' className='btn btn-info'>
           Ir al carrito
