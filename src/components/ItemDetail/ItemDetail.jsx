@@ -42,7 +42,7 @@ export const ItemDetail = ({ id, name, description, price, image, category, stoc
           icon: 'success',
           title: 'Producto agregado al carrito',
           showConfirmButton: false,
-          timer: 1200
+          timer: 1000
         })
   }
 

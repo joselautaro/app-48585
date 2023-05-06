@@ -39,13 +39,14 @@ export const Checkout = () => {
       total_price: precioTotal(),
       data: firebase.firestore.Timestamp.fromDate(new Date())
     }
-    console.log(orden)
 
     // Hacemos funcion para enviar la orden a firebase
     const db = getFirestore()
 
     const ordenes = db.collection('ordenes')
 
+
+    // Cuando usamos add lo que hacemos, sumamos una nueva orden a la colección antes creada 
     ordenes.add(orden)
       .then((res) => {
         Swal.fire({
@@ -62,6 +63,8 @@ export const Checkout = () => {
       })
 
     // Actualizamos la cantidad en la base de datos
+
+    // Con forEach re corremos toda la colección de la base de datos
 
     carrito.forEach((item) => {
       const docRef = db.collection('productos').doc(item.id)
